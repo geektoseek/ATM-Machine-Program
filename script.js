@@ -1,0 +1,55 @@
+var balance = 10000;
+var choice = 0;
+
+while (true) {
+
+    choice = prompt(
+        "ATM MENU\n" +
+        "1. Check Balance\n" +
+        "2. Deposit Money\n" +
+        "3. Withdraw Money\n" +
+        "4. Exit\n\n" +
+        "Enter your choice:"
+    );
+
+    choice = Number(choice);
+
+    if (choice === 1) {
+        alert("Your current balance is: " + balance);
+    }
+
+    else if (choice === 2) {
+
+        var deposit = prompt("Enter deposit amount:");
+        deposit = Number(deposit);
+
+        if (deposit > 0) {
+            balance = balance + deposit;
+            alert("Money deposited successfully\nNew Balance: " + balance);
+        } else {
+            alert("Invalid amount");
+        }
+    }
+
+    else if (choice === 3) {
+
+        var withdraw = prompt("Enter withdraw amount:");
+        withdraw = Number(withdraw);
+
+        if (withdraw > 0 && withdraw <= balance) {
+            balance = balance - withdraw;
+            alert("Please collect your cash\nRemaining Balance: " + balance);
+        } else {
+            alert("Invalid or insufficient balance");
+        }
+    }
+
+    else if (choice === 4) {
+        alert("Thank you for using ATM");
+        break;
+    }
+
+    else {
+        alert("Please enter valid option");
+    }
+}
